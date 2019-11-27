@@ -1,0 +1,300 @@
+event.c:	sfText_setColor(t->history, t->cf1);
+event.c:	sfText_setString(t->history,
+event.c:	if (t->i1 == 5) {
+event.c:		t->cf1.a = t->alpha1 += 1.0;
+event.c:		if (t->alpha1 > 255) {
+event.c:			t->cf1.a = 255;
+event.c:		if (t->s >= 750 || sfKeyboard_isKeyPressed(sfKeyReturn) == sfTrue) {
+event.c:			t->phistory.x = 10000;
+event.c:			t->i1 = 6;
+event.c:			sfMusic_stop(t->mbackground);
+event.c:		t->s++;
+event.c:	if ((t->menu1 == 3 && sfKeyboard_isKeyPressed(sfKeyReturn) == sfTrue) ||
+event.c:	t->i1 == 1) {
+event.c:		if (t->menu1 == 3)
+event.c:			t->i1 = 1;
+event.c:		t->pplay.x = 80000;t->pplay.y = 80000;
+event.c:		t->psettings.x = 105000;t->psettings.y = 10000;
+event.c:		t->pquit.x = 105000;t->pquit.y = 10000;
+event.c:		t->cf.a = t->alpha -= 2.0;
+event.c:		if (t->alpha < 0) {
+event.c:			t->cf.a = 0.0;
+event.c:			t->menu1 = 3;
+event.c:			t->i1 = 5;
+event.c:	if (t->menu1 == 4 && sfKeyboard_isKeyPressed(sfKeyReturn) == sfTrue) {
+event.c:	if (t->menu1 == 2 && sfKeyboard_isKeyPressed(sfKeyReturn) == sfTrue)
+event.c:		sfRenderWindow_close(t->window);
+event.c:	sfText_setPosition(t->play, t->pplay);
+event.c:	sfText_setPosition(t->settings, t->psettings);
+event.c:	sfText_setPosition(t->quit, t->pquit);
+event.c:	sfText_setPosition(t->history, t->phistory);
+event.c:	sfSprite_setColor(t->sbackground, t->cf);
+event.c:	if (t->i1 == 0) {
+event.c:		t->cf.a = t->alpha += 0.5;
+event.c:		if (t->alpha >= 255) {
+event.c:			t->alpha = 255;
+event.c:	if (t->i1 == 5)
+event.c:	if (t->i1 == 6) {
+event.c:		t->cmap.r = 255;t->cmap.g = 255; t->cmap.b = 255;t->cmap.a = 255;
+event.c:		sfSprite_setColor(t->sprite , t->cmap);
+event.c:	t->co = 0;
+event.c:	t->t = 0;
+event.c:	t->cmap.r = 255;t->cmap.g = 255; t->cmap.b = 255;t->cmap.a = 0;
+event.c:	t->titleset = sfTexture_createFromFile("texture.png", NULL);
+event.c:	t->sprite = sfSprite_create();
+event.c:	sfSprite_setTexture(t->sprite, t->titleset, sfTrue);
+event.c:	sfSprite_setColor(t->sprite, t->cmap);
+game.c:	t->player_skin == 1 ? i = 1: i;
+game.c:	t->player_skin == 2 ? i = 2: i;
+game.c:	t->player_skin == 3 ? i = 3: i;
+game.c:	sfRenderWindow_clear(t->window, sfBlack);
+game.c:	sfRenderWindow_drawSprite(t->window, t->sbackground, NULL);
+game.c:	sfRenderWindow_drawSprite(t->window, t->sprite, NULL);
+game.c:	if (t->player_skin == 1)
+game.c:		sfRenderWindow_drawSprite(t->window, t->splayer, NULL);
+game.c:	else if (t->player_skin == 2)
+game.c:		sfRenderWindow_drawSprite(t->window, t->splayer_red, NULL);
+game.c:		sfRenderWindow_drawSprite(t->window, t->splayer_blue, NULL);
+game.c:	sfRenderWindow_drawText(t->window, t->play, NULL);
+game.c:	sfRenderWindow_drawText(t->window, t->settings, NULL);
+game.c:	sfRenderWindow_drawText(t->window, t->quit, NULL);
+game.c:	sfRenderWindow_drawText(t->window, t->history, NULL);
+game.c:        sfRenderWindow_display(t->window);
+game.c:	printf(" skin = %d",t->player_skin == 1);
+game.c:	sfTexture_destroy(t->background);
+game.c:	sfText_destroy(t->play);
+game.c:	sfText_destroy(t->settings);
+game.c:	sfText_destroy(t->quit);
+game.c:	sfSprite_destroy(t->sbackground);
+game.c:	sfMusic_destroy(t->mbackground);
+game.c:	sfRenderWindow_destroy(t->window);
+game.c:	t->speed_time = 1;
+game.c:	t->player_skin = 1;
+game.c:	while (sfRenderWindow_isOpen(t->window)) {
+game.c:		while (sfRenderWindow_pollEvent(t->window, &t->event)) {
+game.c:			if (t->event.type == sfEvtClosed)
+game.c:				sfRenderWindow_close(t->window);
+map.c:	t->valeur = 0;
+map.c:	if (t->map[t->i][t->j] == '1' || t->map[t->i][t->j] == '0') {
+map.c:		t->test[t->z].x = t->x;
+map.c:		t->test[t->z].y = t->y;
+map.c:		t->z++;
+map.c:	while (t->f < 21*11) {
+map.c:		if (t->direction == 2) {
+map.c:			if (t->pplayer.x > t->test[t->f].x && t->pplayer.x < t->test[t->f].x + 96 && t->pplayer.y > t->test[t->f].y && t->pplayer.y < t->test[t->f].y + 96 && t->map[0][t->f] == '1') {
+map.c:				t->pplayer.y = t->test[t->f].y + 96;
+map.c:		if (t->direction == 1) {
+map.c:			if (t->pplayer.x > t->test[t->f].x && t->pplayer.x < t->test[t->f].x + 96 && t->pplayer.y > t->test[t->f].y && t->pplayer.y < t->test[t->f].y + 96 && t->map[0][t->f] == '1') {
+map.c:				t->pplayer.y = t->test[t->f].y + 0;
+map.c:		if (t->direction == 3) {
+map.c:			if (t->pplayer.x > t->test[t->f].x && t->pplayer.x < t->test[t->f].x + 96 && t->pplayer.y > t->test[t->f].y && t->pplayer.y < t->test[t->f].y + 96 && t->map[0][t->f] == '1') {
+map.c:				t->pplayer.y = t->test[t->f].y + 96;
+map.c:		if (t->direction == 4) {
+map.c:			if (t->pplayer.x > t->test[t->f].x && t->pplayer.x < t->test[t->f].x + 96 && t->pplayer.y > t->test[t->f].y && t->pplayer.y < t->test[t->f].y + 96 && t->map[0][t->f] == '1') {
+map.c:				t->pplayer.y = t->test[t->f].y + 0;
+map.c:		t->f++;
+map.c:	t->f = 0;
+map.c:	t->i = 0;
+map.c:	t->j = 0;
+map.c:	t->f = 0;
+map.c:	t->z = 0;
+map.c:		t->map[i][j] = c;
+map.c:	while (t->i < 11) {
+map.c:		while (t->j <= 21) {
+map.c:			//printf("x = %f ; y = %f\n",t->x, t->y);//t->test[t->i*t->j].x, t->test[t->i*t->j].y);
+map.c:			t->x += 96;
+map.c:			t->j++;
+map.c:		t->x = 0;
+map.c:		t->j = 0;
+map.c:		t->y += 96;
+map.c:		t->i++;
+player.c:	t->player = texture_create("perso.png");
+player.c:	t->splayer = sprite_create(t->player, sfFalse);
+player.c:	t->player_red = texture_create("perso_red.png");
+player.c:	t->splayer_red = sprite_create(t->player, sfFalse);
+player.c:	t->player_blue = texture_create("perso_Blue.png");
+player.c:	t->splayer_blue = sprite_create(t->player, sfFalse);
+player.c:	t->rplayer.left = 95; t->rplayer.top = 0;
+player.c:	t->rplayer.width = 57; t->rplayer.height = 87;
+player.c:	t->pplayer.x = 200;
+player.c:	t->pplayer.y = 200;
+player.c:	t->clock = sfClock_create();
+player.c:	sfSprite_setPosition(t->splayer, t->pplayer);
+player.c:	sfSprite_setTextureRect(t->splayer, t->rplayer);
+player.c:	sfSprite_setPosition(t->splayer_red, t->pplayer);
+player.c:	sfSprite_setTextureRect(t->splayer_red, t->rplayer);
+player.c:	sfSprite_setPosition(t->splayer_blue, t->pplayer);
+player.c:	sfSprite_setTextureRect(t->splayer_blue, t->rplayer);
+player.c:	t->time = sfClock_getElapsedTime(t->clock);
+player.c:	t->seconds = t->time.microseconds / 1000000.0;
+player.c:	printf("Direction : %d\n", t->direction);
+player.c:		t->pplayer.y+= 5 + ((t->speed_nb[0] - 48) * 2);
+player.c:		if (t->seconds > 0.0 && t->seconds < 0.25) {
+player.c:			t->rplayer.left = 0; t->rplayer.top = 0;
+player.c:		if (t->seconds > (0.25)  && t->seconds < (0.50)) {
+player.c:			t->rplayer.left = 98*2; t->rplayer.top = 0;
+player.c:		if (t->seconds > (0.50))
+player.c:			sfClock_restart(t->clock);
+player.c:		t->direction = 1;
+player.c:	else if (t->direction == 1) {
+player.c:		t->rplayer.left = 95; t->rplayer.top = 0;
+player.c:		t->pplayer.y -= 5 + ((t->speed_nb[0] - 48) * 2);
+player.c:		if (t->seconds > (0.0) && t->seconds < (0.25)) {
+player.c:			t->rplayer.left = 0; t->rplayer.top = 144*2;
+player.c:		if (t->seconds > (0.25)  && t->seconds < (0.50)) {
+player.c:			t->rplayer.left = 98*2; t->rplayer.top = 144*2;
+player.c:		if (t->seconds > (0.50))
+player.c:			sfClock_restart(t->clock);
+player.c:		t->direction = 2;
+player.c:	else if (t->direction == 2) {
+player.c:		t->rplayer.left = 95; t->rplayer.top = 144*2;
+player.c:		t->pplayer.x += 5 + ((t->speed_nb[0] - 48) * 2);
+player.c:		if (t->seconds > (0.0)  && t->seconds < (0.25)) {
+player.c:			t->rplayer.left = 0; t->rplayer.top = 50*2;
+player.c:		if (t->seconds > (0.25)  && t->seconds < (0.50)) {
+player.c:			t->rplayer.left = 47*2; t->rplayer.top = 100;
+player.c:		if (t->seconds > (0.50))
+player.c:			sfClock_restart(t->clock);
+player.c:		t->direction = 3;
+player.c:	else if (t->direction == 3) {
+player.c:		t->rplayer.left = 95; t->rplayer.top = 50*2;
+player.c:		t->pplayer.x -= 5 + ((t->speed_nb[0] - 48) * 2);
+player.c:		if (t->seconds > (0.0) && t->seconds < (0.25)) {
+player.c:			t->rplayer.left = 0; t->rplayer.top = 96*2;
+player.c:		if (t->seconds > (0.25) && t->seconds < (0.50)) {
+player.c:			t->rplayer.left = 47*2; t->rplayer.top = 96*2;
+player.c:		if (t->seconds > (0.50))
+player.c:			sfClock_restart(t->clock);
+player.c:		t->direction = 4;
+player.c:	else if (t->direction == 4) {
+player.c:		t->rplayer.left = 95; t->rplayer.top = 96*2;
+settings.c:		sfRenderWindow_clear(t->window, sfBlue);
+settings.c:		sfRenderWindow_drawSprite(t->window, t->sbackground, NULL);
+settings.c:		sfText_setColor(t->volume, sfWhite);
+settings.c:		sfText_setColor(t->speed, sfWhite);
+settings.c:		sfText_setColor(t->color, sfWhite);
+settings.c:		idx == 0 ? sfText_setColor(t->volume, sfGreen) : sfText_setColor(t->volume, sfWhite);
+settings.c:		idx == 1 ? sfText_setColor(t->speed, sfGreen) : sfText_setColor(t->speed, sfWhite);
+settings.c:		idx == 2 ? sfText_setColor(t->color, sfGreen) : sfText_setColor(t->color, sfWhite);
+settings.c:		idx == 3 ? sfText_setColor(t->back, sfGreen) : sfText_setColor(t->back, sfWhite);
+settings.c:		t->pplay.x = 80000;t->pplay.y = 0;
+settings.c:		t->psettings.x = 105000;t->psettings.y = 0;
+settings.c:		t->pquit.x = 105000;t->pquit.y = 0;
+settings.c:		t->pback.x = 750;t->pback.y = 550;
+settings.c:		t->pvolume.x = 500;t->pvolume.y = 310;
+settings.c:		t->pspeed.x = 600;t->pspeed.y = 420;
+settings.c:		t->pspeed2.x = 700;t->pspeed2.y = 420;
+settings.c:		t->pcolor.x = 700;t->pcolor.y = 500;
+settings.c:		t->pcolor_txt.x = 870;t->pcolor_txt.y = 500;
+settings.c:		sfText_setPosition(t->volume, t->pvolume);
+settings.c:		sfText_setPosition(t->speed, t->pspeed);
+settings.c:		sfText_setPosition(t->speed_lvl, t->pspeed2);
+settings.c:		sfText_setPosition(t->color, t->pcolor);
+settings.c:		sfText_setPosition(t->color_txt, t->pcolor_txt);
+settings.c:		sfText_setPosition(t->back, t->pback);
+settings.c:		sfRenderWindow_drawText(t->window, t->volume, NULL);
+settings.c:		sfRenderWindow_drawText(t->window, t->speed, NULL);
+settings.c:		sfRenderWindow_drawText(t->window, t->speed_lvl, NULL);
+settings.c:		sfRenderWindow_drawText(t->window, t->color, NULL);
+settings.c:		sfRenderWindow_drawText(t->window, t->color_txt, NULL);
+settings.c:		sfRenderWindow_drawText(t->window, t->back, NULL);
+settings.c:		sfRenderWindow_display(t->window);
+settings.c:			sfText_setString(t->speed_lvl, str);
+settings.c:			t->speed_nb[0] = str[0];
+settings.c:			sfText_setString(t->speed_lvl, t->speed_nb);
+settings.c:			sfText_setString(t->speed_lvl, str);
+settings.c:			t->speed_nb[0] = str[0];
+settings.c:			sfText_setString(t->speed_lvl, t->speed_nb);
+settings.c:			t->player_skin != 3 ? t->player_skin++ : 0;
+settings.c:			t->player_skin != 1 ? t->player_skin-- : 0;
+settings.c:		printf("idx = %d && speed = %d && skin = %d\n", idx, str[0]-48, t->player_skin);
+settings.c:		t->player_skin == 3 ? sfText_setString(t->color_txt, blue) : 0;
+settings.c:		t->player_skin == 2 ? sfText_setString(t->color_txt, red) : 0;
+settings.c:		t->player_skin == 1 ? sfText_setString(t->color_txt, t->skin) : 0;
+text.c:		t->menu1 = 2;
+text.c:		t->menu1--;
+text.c:		t->menu1++;
+text.c:	if (t->menu1 == 4) {
+text.c:		sfText_setColor(t->play, sfWhite);
+text.c:		sfText_setColor(t->quit, sfWhite);
+text.c:		sfText_setColor(t->settings, sfGreen);
+text.c:	if (t->menu1 == 3) {
+text.c:		sfText_setColor(t->quit, sfWhite);
+text.c:		sfText_setColor(t->play, sfGreen);
+text.c:		sfText_setColor(t->settings, sfWhite);
+text.c:	if (t->menu1 == 2) {
+text.c:		sfText_setColor(t->quit, sfGreen);
+text.c:		sfText_setColor(t->play, sfWhite);
+text.c:		sfText_setColor(t->settings, sfWhite);
+text.c:	printf(" menu  =%d\n", t->menu1);
+text.c:	t->pplay.x = 800;t->pplay.y = 800;
+text.c:	t->pquit.x = 1050;t->pquit.y = 800;
+text.c:	t->psettings.x = 900;t->psettings.y = 600;
+text.c:	t->pplay.x = 80000;t->pplay.y = 80000;
+text.c:	t->pquit.x = 105000;t->pquit.y = 10000;
+text.c:	t->phistory.x = 350;t->phistory.y = 300;
+text.c:	t->psettings.x = 90033;t->psettings.y = 60033;
+text.c:	t->alpha = 0;
+text.c:	t->alpha1 = 0;
+text.c:	t->s = 0;
+text.c:       	t->vol_nb = "X";
+text.c:	t->speed_nb = malloc(sizeof(char) * 2);
+text.c:	t->skin = malloc(sizeof(char) * 7);
+text.c:	t->skin = "Default\0";
+text.c:	t->speed_nb[0] = '0';
+text.c:	t->speed_nb[1] = 0;
+text.c:	t->settings = sfText_create();
+text.c:	sfText_setString(t->settings, "Settings");
+text.c:	sfText_setFont(t->settings, t->font);
+text.c:	sfText_setCharacterSize(t->settings, 30);
+text.c:	t->volume = sfText_create();
+text.c:	sfText_setString(t->volume, "Volume :");
+text.c:	//t->volume_lvl = sfText_create();
+text.c:	//sfText_setString(t->volume, t->vol_nb);
+text.c:	t->color = sfText_create();
+text.c:	sfText_setString(t->color, "Color");
+text.c:	t->speed = sfText_create();
+text.c:	sfText_setString(t->speed, "Speed");
+text.c:	sfText_setCharacterSize(t->color, 30);
+text.c:	sfText_setCharacterSize(t->speed, 30);
+text.c:	t->speed_lvl = sfText_create();
+text.c:	sfText_setString(t->speed_lvl, t->speed_nb);
+text.c:	//sfText_setCharacterSize(t->color, 30);
+text.c:	/* t->speed = sfText_create(); */
+text.c:	/* sfText_setString(t->speed, "Speed"); */
+text.c:	sfText_setCharacterSize(t->volume, 30);
+text.c:	t->back = sfText_create();
+text.c:	t->color_txt = sfText_create();
+text.c:	sfText_setString(t->color_txt, t->skin);
+text.c:	sfText_setCharacterSize(t->color_txt, 30);
+text.c:	sfText_setString(t->back, "Back");
+text.c:	sfText_setCharacterSize(t->back, 30);
+text.c:	sfText_setFont(t->color, t->font);
+text.c:	sfText_setFont(t->color_txt, t->font);
+text.c:	sfText_setFont(t->speed, t->font);
+text.c:	sfText_setFont(t->speed_lvl, t->font);
+text.c:	sfText_setFont(t->volume, t->font);
+text.c:	sfText_setFont(t->back, t->font);
+text.c:	t->font = sfFont_createFromFile("arial.otf");
+text.c:	t->play = sfText_create();
+text.c:	sfText_setString(t->play, "Start");
+text.c:	sfText_setFont(t->play, t->font);
+text.c:	sfText_setCharacterSize(t->play, 30);
+text.c:	t->quit = sfText_create();
+text.c:	sfText_setString(t->quit, "Quit");
+text.c:	sfText_setFont(t->quit, t->font);
+text.c:	sfText_setCharacterSize(t->quit, 30);
+text.c:	t->history = sfText_create();
+text.c:	sfText_setString(t->history, "");
+text.c:	sfText_setFont(t->history, t->font);
+text.c:	sfText_setCharacterSize(t->history, 30);
+windows.c:	t->window = sfRenderWindow_create(mode, "Undertale Reborn", sfResize | sfClose, NULL);
+windows.c:	sfRenderWindow_setFramerateLimit(t->window, 60);
+windows.c:	t->cf.r = 255;t->cf.g = 255;t->cf.b = 255;t->cf.a = 0;
+windows.c:	t->cf1.r = 255;t->cf1.g = 255;t->cf1.b = 255;t->cf1.a = 0;
+windows.c:	t->i1 = 0;
+windows.c:	t->player_skin = 1;
+windows.c:	t->background = texture_create("background.png");
+windows.c:	t->sbackground = sprite_create(t->background, sfFalse);
+windows.c:	t->mbackground = sfMusic_createFromFile("mbackground.ogg");
+windows.c:	sfMusic_play(t->mbackground);
